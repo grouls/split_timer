@@ -8,15 +8,8 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
+  font: mono;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -29,5 +22,23 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply text-white font-bold py-2 px-4 rounded capitalize;
+    &.inactive {
+      @apply bg-green-500 hover:bg-green-700;
+    }
+    &.active {
+      @apply bg-red-500 hover:bg-red-700;
+    }
+    &.clear {
+      @apply bg-blue-500 hover:bg-blue-700;
+    }
+  }
+  .label {
+    @apply capitalize;
   }
 }
